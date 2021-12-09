@@ -1,7 +1,8 @@
 package main
 
 import (
-	"golangify.com/snippetbox/koleanbox/shadowmoney/auth"
+	"ShadowMoney/koleanbox/shadowmoney/auth"
+	"html/template"
 	"log"
 	"net/http"
 )
@@ -12,7 +13,17 @@ func home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Write([]byte("Home"))
+	home, err := template.ParseFiles("./ui/html/home.page.tmpl")
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+		return
+	}
+	err = home.Execute(w, nil)
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+	}
 }
 
 func main() {
