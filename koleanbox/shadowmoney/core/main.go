@@ -1,7 +1,6 @@
 package main
 
 import (
-	"ShadowMoney/koleanbox/shadowmoney/auth"
 	"html/template"
 	"log"
 	"net/http"
@@ -13,7 +12,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	home, err := template.ParseFiles("./ui/html/home.page.tmpl")
+	home, err := template.ParseFiles("./ShadowMoney.html")
 	if err != nil {
 		log.Println(err.Error())
 		http.Error(w, "Internal Server Error", 500)
