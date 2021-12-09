@@ -1,6 +1,7 @@
 package main
 
 import (
+	"golangify.com/snippetbox/koleanbox/shadowmoney/auth"
 	"html/template"
 	"log"
 	"net/http"
@@ -11,8 +12,8 @@ func home(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r) // Вывод 404
 		return
 	}
-
-	home, err := template.ParseFiles("./ShadowMoney.html")
+	http.Handle("/templates/css/", http.StripPrefix("/templates/css/", http.FileServer(http.Dir("css"))))
+	home, err := template.ParseFiles("koleanbox/shadowmoney/templates/ShadowMoney.html")
 	if err != nil {
 		log.Println(err.Error())
 		http.Error(w, "Internal Server Error", 500)
@@ -33,5 +34,4 @@ func main() {
 
 	err := http.ListenAndServe(":8080", mux)
 	log.Fatal(err)
-
 }
