@@ -6,7 +6,16 @@
 		<meta http-equiv="Content-type" content="text/html";charset="utf-8"/>
 	</head>
 	<body>
-		<header>	
+		<header>
+			<div class="logo">
+				
+			</div>	
+
+			<div class="add">
+				
+
+			</div>
+
 			<nav class="topnav">
 			  <a href="index.html" name="Home" class="active">Home</a>
 			  <a href="news.html" name="News"> News</a>
@@ -14,24 +23,33 @@
 			  <a href="about.html" name="About"> About</a>
 			</nav>
 		</header>
-
-		<div>
-			<h1>ShadowMoney</h1>
-			<p>Тренировка в верстке сайта и его реализации</p>
-			<p>{{ .Status }}</p>
-		</div>
-
-		<div class="auth">
-			<form action="/authProcess" method="post" enctype="multipart/form-data">
-				<ul>
-					<li><input tabindex="1" placeholder="Login" type="text" name="login" value=""> Login</li>
-					<li><input tabindex="2" placeholder="Password" type="Password" name="password" value=""> Password</li>
-				</ul>
-				<div>
-					<button type="submit">Войти</button>
-					<button type="submit"><a href="register.html">Зарегестрироваться</a></button>
-				</div>
-			</form>
+		<div class="content">
+			<div class="info">
+				
+			</div>
+			<div class="shop">
+						<div>
+							<h1>ShadowMoney</h1>
+							<p>Тренировка в верстке сайта и его реализации</p>
+							<p>{{ .Status }}</p>
+						</div>
+			
+						<div class="auth">
+							<form action="/authProcess" method="post" enctype="multipart/form-data">
+								<ul>
+									<li><input tabindex="1" placeholder="Login" type="text" name="login" value=""> Login</li>
+									<li><input tabindex="2" placeholder="Password" type="Password" name="password" value=""> Password</li>
+								</ul>
+								<div class="button">
+									<button type="submit">Войти</button>
+									<button type="submit"><a href="register.html">Зарегестрироваться</a></button>
+								</div>
+							</form>
+						</div>
+			</div>
+			<div class="vidios">
+				
+			</div>
 		</div>
 		<footer>
 			
