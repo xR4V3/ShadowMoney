@@ -32,6 +32,7 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", home)
 	mux.HandleFunc("/authProcess", auth.AuthProcess)
+	mux.HandleFunc("/registerProcess", auth.RegisterProcess)
 	mux.HandleFunc("/register", auth.Register)
 	log.Println("Запуск веб-сервера на http://127.0.0.1:8080")
 	dsn := "u641154_sm:shadowmoney@tcp(185.179.190.245:3306)/u641154_sm"
@@ -41,7 +42,9 @@ func main() {
 	} else {
 		log.Println("База данных подключена!")
 	}
+	database.DB(db, err)
 	defer db.Close()
+	database.CreateTable()
 	err1 := http.ListenAndServe(":8080", mux)
 	log.Fatal(err1)
 }
